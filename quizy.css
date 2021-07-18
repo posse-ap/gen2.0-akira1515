@@ -1,0 +1,64 @@
+.container{
+  margin: 0 auto;
+  width:50%;
+}
+
+.picture{
+  width:100%;
+}
+
+.underline {
+  border-bottom: 3px solid #ffd700;
+}
+
+.box {
+  box-sizing: border-box;
+  cursor: pointer;
+  padding: 15px 30px 15px 10px;
+  width: 100%;
+  box-shadow: inset 0px -1.5px #e5e5e5;
+  border: 1px solid #e5e5e5;
+  text-align: left;
+  font-family: "HiraKakuPro-W6";
+}
+
+.answer {
+  box-sizing: border-box;
+  padding: 15px 30px 15px 10px;
+  width: auto;
+  background-color: #eeeeee;
+  text-align: left;
+  font-family: "HiraKakuPro-W6";
+  display: none;
+}
+
+.answer2 {
+  font-family: Georgia, "Times New Roman", Times, serif;
+  display: block;
+  margin-top: 10px;
+}
+
+.correct-line {
+  border-bottom: 3px solid #287dff;
+}
+
+.incorrect-line {
+  border-bottom: 3px solid #ff5028;
+}
+
+.cannotclick{
+  pointer-events: none;
+}
+
+.a{
+  background-color: black;
+}
+
+.answerBox {
+  display:none;
+}
+
+.answerBox2{
+  display:none;
+}
+
