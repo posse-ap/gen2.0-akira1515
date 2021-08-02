@@ -14,6 +14,8 @@ let arr = [
 ['こぐれ'   ,'こばく'     ,'こしゃく'],
 ];
 
+
+
 let img = [
   "https://d1khcm40x1j0f.cloudfront.net/quiz/34d20397a2a506fe2c1ee636dc011a07.png",
   "https://d1khcm40x1j0f.cloudfront.net/quiz/512b8146e7661821c45dbb8fefedf731.png",
@@ -34,15 +36,31 @@ for (let i = 0; i < 10; i++) {
     '<div class="container">' +
     '<h3> <span class="underline">' + (i + 1) +'.この地名はなんて読む？ </span> </h3>' +
     '<img class="picture" src=' + img[i] + '>' +
-    '<p class="box" id="correctBox' + i + '" onclick="clickBtnCorrect(' + i +')" > ' + arr[i][0] + '</p>' +
-    '<p class="box" id="incorrectBox1-' + i + '" onclick="clickBtnIncorrect(' + i +')"> ' + arr[i][1] + '</p>' +
-    '<p class="box" id="incorrectBox2-' + i + '" onclick="clickBtnIncorrect2(' + i +')"> ' + arr[i][2] + '</p>' +
+    '<ul id="workFigure" style="display: flex;flex-direction: column">'+
+    '<li class="box" id="correctBox' + i + '" onclick="clickBtnCorrect(' + i +')" > ' + arr[i][0] + '</li>' +
+    '<li class="box" id="incorrectBox1-' + i + '" onclick="clickBtnIncorrect(' + i +')"> ' + arr[i][1] + '</li>' +
+    '<li class="box" id="incorrectBox2-' + i + '" onclick="clickBtnIncorrect2(' + i +')"> ' + arr[i][2] + '</li>' +
+    '</ul>'+
     '<p class="answer" id="answerBox' + i + '"> <span class="correct-line"> 正解！ </span> <br/> <span class="answer2"> 正解は「' + arr[i][0] + '」です！ </span> </p>' +
     '<p class="answer" id="answerBox2' + i + '"> <span class="incorrect-line"> 不正解！ </span> <br/> <span class="answer2"> 正解は「' + arr[i][0] + '」です！ </span> </p>' +
     "</div>";
 
   document.write(classes + "<br>");
 }
+
+// ランダム
+// 要素の取得
+let list_items = document.querySelectorAll("#workFigure li");  
+//workFigureを個別化してあげる必要がある
+
+//ランダム関数
+function rand(){
+  let choice_order = Math.floor(Math.random()*2);
+  return choice_order;
+}
+
+Array.from(list_items).forEach(elm =>{ elm.style.order = rand()});
+
 
 const correctBox = document.getElementById("correctBox");
 
@@ -64,6 +82,7 @@ var clickBtnCorrect = function (questionNumber){
   incorrectBox1.classList.add("cannotclick");
   incorrectBox2.classList.add("cannotclick");
 };
+
 
 // 一問目の不正解を押した時
 var clickBtnIncorrect = function (questionNumber) {
@@ -91,7 +110,7 @@ var clickBtnIncorrect2 = function (questionNumber) {
   let incorrectBox1 = document.getElementById("incorrectBox1-" + questionNumber);
   let incorrectBox2 = document.getElementById("incorrectBox2-" + questionNumber);
   let correctBox = document.getElementById("correctBox" + questionNumber);
- 
+
   // 二問目の不正解を赤にする
   incorrectBox2.style.backgroundColor = "#FF5028";
   correctBox.style.backgroundColor = "#287dff";
@@ -106,5 +125,4 @@ var clickBtnIncorrect2 = function (questionNumber) {
   incorrectBox1.classList.add("cannotclick");
   incorrectBox2.classList.add("cannotclick");
 };
-
 
