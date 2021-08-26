@@ -1,5 +1,3 @@
-// if文にする
-// シャッフルにする
 
 let arr = [
 ['たかなわ'  ,'こうわ'      ,'たかわ'],
@@ -62,10 +60,8 @@ function rand(){
 Array.from(list_items).forEach(elm =>{ elm.style.order = rand()});
 
 
-const correctBox = document.getElementById("correctBox");
-
 // 正解を押した時
-var clickBtnCorrect = function (questionNumber){
+const clickBtnCorrect = function (questionNumber){
   let correctBox = document.getElementById("correctBox" + questionNumber );
   let incorrectBox1 = document.getElementById("incorrectBox1-" + questionNumber);
   let incorrectBox2 = document.getElementById("incorrectBox2-" + questionNumber);
@@ -85,11 +81,11 @@ var clickBtnCorrect = function (questionNumber){
 
 
 // 一問目の不正解を押した時
-var clickBtnIncorrect = function (questionNumber) {
+const clickBtnIncorrect = function (questionNumber) {
   let incorrectBox1 = document.getElementById("incorrectBox1-" + questionNumber);
   let incorrectBox2 = document.getElementById("incorrectBox2-" + questionNumber);
   let correctBox = document.getElementById("correctBox" + questionNumber);
- 
+
   //  一問目の不正解を赤にする
   incorrectBox1.style.backgroundColor = "#FF5028";
   correctBox.style.backgroundColor = "#287dff";
@@ -106,7 +102,7 @@ var clickBtnIncorrect = function (questionNumber) {
 };
 
 // 二問目の不正解を押した時 
-var clickBtnIncorrect2 = function (questionNumber) {
+const clickBtnIncorrect2 = function (questionNumber) {
   let incorrectBox1 = document.getElementById("incorrectBox1-" + questionNumber);
   let incorrectBox2 = document.getElementById("incorrectBox2-" + questionNumber);
   let correctBox = document.getElementById("correctBox" + questionNumber);
