@@ -4,9 +4,61 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" href="reset.css">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
+    <title>posse-app</title>
 </head>
 <body>
-    
+    <header>
+        <h1 class="logo">
+            <a href=""><img src="posse_logo.jpg" alt=""></a>
+            <p>4th week</p>
+        </h1>
+        
+        <a href="" class="btn btn-gradient"><span>記録・登録</span></a>
+    </header>
+    <div class="top_wrapper">
+        <div class="container">
+            <div class="time_and_bargraph">
+                <div class="time">
+                    <section class="item">
+                        <p class="time_span">Today</p>
+                        <p class="time_num"> 3</p>
+                        <p class="time_hour">hour</p>
+                    </section>
+                    <section class="item">
+                        <p class="time_span">Month</p>
+                        <p class="time_num"> 120</p>
+                        <p class="time_hour">hour</p>
+                    </section>
+                    <section class="item">
+                        <p class="time_span">Total</p>
+                        <p class="time_num"> 1348</p>
+                        <p class="time_hour">hour</p>
+                    </section>
+                </div>
+                <div class="bar_graph">
+                    <p>bar_graph</p>
+                </div>
+            </div>
+
+            <section class="circle_graph">
+                <h1 class="learning_language">学習言語</h1>
+            </section>
+            <section class="circle_graph">
+                <h1 class="learning_contents">学習コンテンツ</h1>
+            </section>
+        </div>
+        <p class="date">2020年 10月</p>
+    </div>
+    <section class="popup" id="js-popup" onclick="check">
+        <div class="first_side">
+            <p>学習日</p>
+        </div>
+
+        <!-- <div class="black-background" id="js-black-bg"></div> -->
+    </section>
+    <script src="main.js"></script>
 </body>
 </html>
