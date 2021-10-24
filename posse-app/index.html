@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="reset.css">
     <link rel="stylesheet" href="style.css">
     <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
+    <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
     <title>posse-app</title>
 </head>
 <body>
@@ -16,7 +17,7 @@
             <p>4th week</p>
         </h1>
         
-        <a href="" class="btn btn-gradient"><span>記録・登録</span></a>
+        <p class="btn record_register" id="openModal"><span>記録・登録</span></p>
     </header>
     <div class="top_wrapper">
         <div class="container">
@@ -42,23 +43,81 @@
                     <p>bar_graph</p>
                 </div>
             </div>
-
-            <section class="circle_graph">
-                <h1 class="learning_language">学習言語</h1>
-            </section>
-            <section class="circle_graph">
-                <h1 class="learning_contents">学習コンテンツ</h1>
-            </section>
+            <div class="circles">
+                <section class="circle_graph1">
+                    <h1 class="learning_language">学習言語</h1>
+                </section>
+                <section class="circle_graph2">
+                    <h1 class="learning_contents">学習コンテンツ</h1>
+                </section>
+            </div>
         </div>
         <p class="date">2020年 10月</p>
+        <p class="btn record_register" id="openModal"><span>記録・登録</span></p>
     </div>
-    <section class="popup" id="js-popup" onclick="check">
-        <div class="first_side">
-            <p>学習日</p>
+    
+    <section id="modalArea" class="modalArea">
+        <div id="modalBg" class="modalBg"></div>
+        <div class="modalWrapper">
+            <div class="modalContents">
+                <div class="first_container">
+                    <p class="learning_day">学習日</p>
+                    <input type="text" class="learning_date input_space">
+                    <div class="learning_contents">
+                    学習コンテンツ（複数選択可）
+                    </div>
+                    <h1 class="learning_contents_choices">
+                            <label><input type="checkbox" class="checkbox">
+                                <span class="checkbox-fontas">N予備校</span></label>
+                            <label><input type="checkbox" class="checkbox">
+                                <span class="checkbox-fontas">ドットインストール</span></label>
+                                <!-- <br><br><br> -->
+                            <label><input type="checkbox" class="checkbox">
+                                <span class="checkbox-fontas checkbox-fontas_last">POSSE課題</span></label>
+                    </h1>
+                    <div class="learning_language">
+                    学習言語（複数選択可）
+                    </div>
+                    <h1 class="learning_contents_choices">
+                        <label><input type="checkbox" class="checkbox">
+                            <span class="checkbox-fontas">HTML</span></label>
+                        <label><input type="checkbox" class="checkbox">
+                            <span class="checkbox-fontas">CSS</span></label>
+                            <!-- <br><br><br> -->
+                        <label><input type="checkbox" class="checkbox">
+                            <span class="checkbox-fontas">JavaScript</span></label>
+                        <label><input type="checkbox" class="checkbox">
+                            <span class="checkbox-fontas">PHP</span></label>
+                        <label><input type="checkbox" class="checkbox">
+                            <span class="checkbox-fontas">Laravel</span></label>
+                        <label><input type="checkbox" class="checkbox">
+                            <span class="checkbox-fontas">SQL</span></label>
+                        <label><input type="checkbox" class="checkbox">
+                            <span class="checkbox-fontas">SHELL</span></label>
+                        <label><input type="checkbox" class="checkbox">
+                            <span class="checkbox-fontas checkbox-fontas_last">情報システム基礎知識(その他)</span></label>
+                    </h1>
+                </div>
+                <div class="second_container">
+                    <h1 class="learning_time">学習時間</h1>
+                    <input type="text" class="learning_hours input_space">
+                    <h1 class="twitter_for_comment">Twitter用コメント</h1>
+                    <textarea name="" id="" cols="30" rows="10" class="comment_for_twitter input_space"></textarea>
+                    <div class="twitter_share">
+                        <label><input type="checkbox" class="checkbox">
+                            <span class="checkbox-fontas">Twitterにシェアする</span></label>
+                    </div>
+                </div>
+            </div>
+            <p class="record_register_modal"><span class="record_register_modal_word">記録・登録</span></p>
+            <div id="closeModal" class="closeModal">
+                ×
+            </div>
         </div>
-
-        <!-- <div class="black-background" id="js-black-bg"></div> -->
     </section>
+    
+
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="main.js"></script>
 </body>
 </html>

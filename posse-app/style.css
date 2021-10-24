@@ -37,7 +37,6 @@ header{
 }
 
 .btn,
-a.btn,
 button.btn {
     font-size: 1.6rem;
     font-weight: 700;
@@ -62,7 +61,7 @@ button.btn {
     flex-direction: row;
 }
 
-a.btn-gradient {
+.record_register {
     font-weight: normal;
     color: #fff;
     border-radius: 0;
@@ -77,23 +76,21 @@ a.btn-gradient {
     background-image: linear-gradient(90deg, #0F73BC 40%, #3DCDFE 100%);
     -webkit-box-shadow: 0 5px 10px rgb(171,232,254);
     box-shadow: 0 5px 10px rgb(171,232,254);
+    border-radius: 100vh;
+    display: block;
 }
 
-a.btn-gradient span {
+.record_register span {
     position: relative;
     z-index: 1;
 }
 
-a.btn-gradient:hover {
+.record_register:hover {
     color: #fff;
 }
 
-a.btn-gradient:hover:after {
+.record_register:hover:after {
     opacity: 0;
-}
-
-a.btn-gradient {
-    border-radius: 100vh;
 }
 
 .container{
@@ -135,7 +132,12 @@ a.btn-gradient {
     font-size: 1.6rem;
 }
 
-.circle_graph{
+.circles{
+    display: flex;
+    width: 100%;
+}
+
+.circle_graph1{
     display: flex;
     height: 54.2rem;
     width: 100%;
@@ -145,14 +147,20 @@ a.btn-gradient {
     font-weight: bold;
     margin-top: 2.0rem;
     margin-right: 2.0rem;
-}
-
-.learning_language{
     padding-top: 3.0rem;
     padding-left: 2.0rem;
 }
 
-.learning_contents{
+.circle_graph2{
+    display: flex;
+    height: 54.2rem;
+    width: 100%;
+    background-color: white;
+    border-radius: 1.0rem ;
+    font-size: 2.0rem;
+    font-weight: bold;
+    margin-top: 2.0rem;
+    margin-right: 0rem;
     padding-top: 3.0rem;
     padding-left: 2.0rem;
 }
@@ -182,6 +190,7 @@ a.btn-gradient {
     font-size: 1.0em;
     color: #0F70BB;
 }
+
 .date:before {
   content:"\f053";/*アイコン種類*/
   padding-right: 0.5em
@@ -222,4 +231,466 @@ a.btn-gradient {
     background-color: rgba(0,0,0,.8);
     z-index: 1;
     cursor: pointer;
-  }
+}
+
+/* モーダルCSS */
+.modalArea {
+    display: none;
+    position: fixed;
+    z-index: 10; /*サイトによってここの数値は調整 */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.modalBg {
+    width: 100%;
+    height: 100%;
+    background-color: rgba(30,30,30,0.6);
+}
+
+.modalWrapper {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform:translate(-50%,-50%);
+    width: 80%;
+    height: 57.0rem;
+    max-width: 90.0rem;
+    padding: 1.0rem 0rem;
+    background-color: #fff;
+    border-radius: 3.0rem;
+}
+
+.modalWrapper .first_container{
+    margin-top: 2.5rem;
+}
+
+.modalWrapper .second_container{
+    margin-top: 2.5rem;
+}
+
+.closeModal {
+    position: absolute;
+    top: 2.0rem;
+    right: 2rem;
+    cursor: pointer;
+    font-size: 3.0rem;
+    color: #666666;
+    background-color: #F5F5F8;
+    border-radius: 50%;
+    /* padding-top: 0.1rem; */
+    width: 4rem;
+    height: 4rem;
+    align-items: center;
+    text-align: center;
+}
+
+.modalContents{
+    padding: 3rem 5.6rem 0 5.6rem;
+    font-size: 1.5rem;
+    font-weight: bold;
+    display: flex;
+}
+
+.first_container{
+    margin-top: 5.6rem;
+    margin-right: 4.0rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.input_space{
+    background-color: #F5F5F8;
+    padding: 2rem;
+}
+
+.modalContents .first_container .learning_contents{
+    padding:1rem 0;
+    width: 39.8rem;
+}
+
+.modalContents .first_container .learning_language{
+    padding-top: 2rem;
+    padding-bottom: 1rem;
+    width: 39.8rem;
+}
+
+.modalContents .first_container .learning_contents_choices{
+    width: 90%;
+}
+
+.learning_date{
+    height: 5.0rem;
+    /* width: 35rem; */
+    width: 100%;
+    border-radius: 1.0rem;
+    margin-top: 0.7rem;
+    margin-bottom: 2.5rem;
+}
+
+.checkbox {
+    display: none;
+}
+.checkbox-fontas {
+    display: inline-block;
+    position: relative;
+    vertical-align: middle;
+    font-size: 1.56rem;
+    background-color: #F5F5F8;
+    padding: 1.05rem;
+    margin-bottom: 0.8rem;
+    border-radius: 2rem;
+    font-weight: normal;
+    margin-right: 0.1rem;
+}
+
+.checkbox + .checkbox-fontas:before {
+    font-family: "Font Awesome 5 Free";
+    content: '\f058';
+    color: #ccc;
+    padding-right: 0.5rem;
+    font-weight: bold;
+}
+
+.checkbox:checked + .checkbox-fontas:before {
+    color: #0F70BC;
+}
+
+
+
+.second_container{
+    margin-top: 5.6rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.learning_hours{
+    height: 5.0rem;
+    width: 35rem;
+    border-radius: 1.0rem;
+    margin-top: 0.7rem;
+    margin-bottom: 2.5rem;
+}
+
+.twitter_for_comment{
+    padding-top: 1.0rem;
+}
+
+.comment_for_twitter{
+    margin-top: 0.7rem;
+    border-radius: 1.0rem;
+    height: 22rem;
+}
+
+.twitter_share{
+    display: flex;
+    margin-top: 0.7rem;
+    border-radius: 100%;
+}
+
+.twitter_share .checkbox{
+    display: none;
+}
+
+.twitter_share .checkbox-fontas {
+    background-color: white;
+    font-size: 1.3rem;
+    display: flex;
+    align-items: center;
+    padding: 0rem;
+    margin-top: 0.5rem;
+    margin-bottom: 0rem;
+}
+
+.twitter_share .checkbox + .checkbox-fontas:before {
+    font-family: "Font Awesome 5 Free";
+    content: '\f058';
+    color: #ccc;
+    padding-right: 0.5rem;
+    font-weight: bold;
+    font-size: 3rem;
+}
+
+.twitter_share .checkbox:checked + .checkbox-fontas:before {
+    color: #0F70BC;
+}
+
+.record_register_modal{
+    font-weight: normal;
+    color: #fff;
+    border-radius: 0;
+    background-image: -webkit-gradient(
+    linear,
+    left top,
+    right top,
+    color-stop(40%, #ff3cac),
+    to(#562b7c)
+    );
+    background-image: -webkit-linear-gradient(left, #0F73BC 40%, #3DCDFE 100%);
+    background-image: linear-gradient(90deg, #0F73BC 40%, #3DCDFE 100%);
+    -webkit-box-shadow: 0 5px 10px rgb(171,232,254);
+    box-shadow: 0 5px 10px rgb(171,232,254);
+    border-radius: 100vh;
+    width: 40rem;
+    font-size: 2rem;
+    height: 5.6rem;
+    bottom: 3rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 2rem auto;
+}
+
+.record_register_modal span {
+    display: flex;
+    align-items: center;
+}
+
+.record_register_modal:hover {
+    color: #fff;
+}
+
+.record_register_modal:hover:after {
+    opacity: 0;
+}
+
+.top_wrapper .btn{
+    display: none;
+}
+
+
+/* レスポンシブ対応 */
+@media(max-width:600px) {
+    html { width: 75.5rem; 
+        background-color: #F5F5F8;
+    }
+
+    header{
+        padding: 0 2.0rem;
+    }
+
+    .top_wrapper{
+        margin: 2.0rem 2.0rem 1.6rem 2.0rem;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .container{
+        margin: 0;
+        display: block;
+        
+    }
+
+    .time_and_bargraph{
+        width: 71.5rem;
+    }
+
+    .circle_graph1{
+        margin-right: 1.6rem;
+    }
+
+    .time{
+        margin-bottom: 3.2rem;
+        width: 100%;
+    }
+
+    .item:first-child{
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    .item:last-child{
+        margin-right: 0;
+        margin-left: 0;
+    }
+
+    .item {
+        width: 23.0rem;
+        height: 18.0rem;
+        margin: 0rem 1.6rem;
+        padding: 3.5rem;
+        padding-top: 3.0rem;
+        border-radius: 1.0rem ;
+    }
+
+    .item .time_span{
+        font-size: 2.5rem;
+    }
+
+    .item .time_num{
+        font-size: 5rem;
+    }
+
+    .item .time_hour{
+        font-size: 2.5rem;
+    }
+
+    .bar_graph{
+        margin: 0rem 0 1.6rem 0;
+        width: 100%;
+        height: 30rem;
+    }
+
+    .circles{
+        background-color: #F5F5F8;
+        height: 50rem;
+    }
+
+    .circle_graph1{
+        margin-top: 0;
+    }
+
+    .circle_graph2{
+        margin-top: 0;
+    }
+    body .top_wrapper .btn{
+        padding-top: 3rem;
+        padding-bottom: 3rem;
+        font-size: 3rem;
+        display: flex;
+        align-items: center;
+        text-align: center;
+        
+    }
+
+    span{
+        left: 36%;
+    }
+
+    .date{
+        background-color: #F5F5F8;
+        margin: 0;
+        padding: 3.2rem 0;
+        font-size: 2rem;
+    }
+
+    .btn,
+    button.btn {
+    display: none;
+    }
+
+    .top_wrapper .btn{
+        display: block;
+    }
+    
+    .modalWrapper{
+        width: 100%;
+        height: 95%;
+        top:55%;
+        padding: 0;
+    }
+
+    .modalContents{
+        margin: 2.0rem 2.0rem 0 2.0rem;
+        padding: 0;
+        height: 70%;
+        display: block;
+        
+    }
+
+    .modalContents .first_container{
+        margin-top: 7.0rem;
+        margin-right: 0;
+    }
+    
+    .learning_day{
+        font-size: 2.0rem;
+    }
+
+    .learning_date{
+        margin: 1.0rem 0 2.4rem 0;
+        padding: 1.5rem 2.0rem 1.5rem 2.0rem;
+        height: 4.0rem;
+        width: 100%;
+    }
+
+    .modalContents .first_container .learning_contents{
+        padding-top: 0;
+        padding-bottom: 1.0rem;
+        width: 100%;
+        font-size: 2.0rem;
+    }
+
+    .modalContents .first_container .learning_language{
+        padding-top: 0;
+        padding-bottom: 1.0rem;
+        width: 100%;
+        font-size: 2.0rem;
+        margin-top: 2.4rem;
+    }
+
+    .modalContents .first_container .learning_contents_choices{
+        width: 75%;
+    }
+
+    .checkbox-fontas{
+        margin-right: 0.8rem;
+        font-size: 2.5rem;
+    }
+
+    .checkbox-fontas_last{
+        margin-bottom: 0;
+    }
+
+    .learning_time{
+        margin-top: 2.4rem;
+    }
+
+    .modalContents .second_container{
+        margin-top: 0;
+        font-size: 2.0rem;
+    }
+
+    .learning_hours{
+        margin-top: 1.0rem;
+        margin-bottom: 2.4rem;
+        width: 100%;
+    }
+
+    .modalContents .second_container .twitter_for_comment{
+        margin-bottom: 1.0rem;
+    }
+
+    .comment_for_twitter{
+        margin-top: 0;
+    }
+
+    .twitter_share{
+        margin-top: 0.5rem;
+    }
+
+    .twitter_share .checkbox-fontas{
+        font-size: 2.0rem;
+    }
+
+    .record_register_modal{
+        font-weight: normal;
+        color: #fff;
+        border-radius: 0;
+        background-image: -webkit-gradient(
+        linear,
+        left top,
+        right top,
+        color-stop(40%, #ff3cac),
+        to(#562b7c)
+        );
+        background-image: -webkit-linear-gradient(left, #0F73BC 40%, #3DCDFE 100%);
+        background-image: linear-gradient(90deg, #0F73BC 40%, #3DCDFE 100%);
+        -webkit-box-shadow: 0 5px 10px rgb(171,232,254);
+        box-shadow: 0 5px 10px rgb(171,232,254);
+        border-radius: 100vh;
+        width: 71.3rem;
+        font-size: 2rem;
+        height: 7.6rem;
+        bottom: 3rem;
+        display: flex;
+        justify-content: center;
+        margin: 2.2rem 2.0rem 2.0rem 2.0rem;
+        box-sizing: border-box;
+    }
+}
+
+/* bodyが下まで降りてこない */
