@@ -1,25 +1,24 @@
 <?php
-// 1.データベースに接続する。
-$pdo = new PDO('mysql:dbname=quizy; host=db;', 'root', 'secret');
-$pdo->query('SET NAMES utf8;');
-
-// 2.実行したいSQL文をセットする。
-$stmt = $pdo->prepare('SELECT * FROM questions WHERE id = :id');
-
-// 3.SQLに対してパラメーターをセットする。【任意】(可変する部分の受け皿)
-// $stmt->bindValue(':mail_address', $mail_address, PDO::PARAM_STR);
-$stmt->bindValue(':id', $_GET["place_id"]);
 
 
-// 4.実際にSQLを実行する。
-$stmt->execute(); //prepareの時に発射させるもの
+/// h関数が未定義の場合は定義
+// if( ! function_exists('h') ) {
+//   function h($s) {
+//     echo htmlspecialchars($s, ENT_QUOTES, "UTF-8");
+//   }
+// }
 
-// 5.結果を取得する。【任意】
-$user = $stmt->fetchAll();
-print_r($user) ;
+$dsn = 'mysql:host=db;dbname=webapp;charset=utf8mb4;';
+$user = 'akira';
+$password = 'secret';
 
-// 6.データーベースから切断する。
-unset($pdo);
+try {
+  $db = new PDO($dsn, $user, $password);
+  $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+} catch (PDOException $e) {
+  echo '接続失敗: ' . $e->getMessage();
+  exit();
+}
 
 
 // <?php
