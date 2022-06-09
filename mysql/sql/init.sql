@@ -10,8 +10,8 @@ CREATE TABLE big_questions (
   updated_at DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 );
 
-INSERT INTO big_questions SET name='東京の難読地名クイズ';
-INSERT INTO big_questions SET name='広島の難読地名クイズ';
+INSERT INTO big_questions SET name='Tokyo-quiz';
+INSERT INTO big_questions SET name='Hiroshima-quiz';
 
 DROP TABLE IF EXISTS questions;
 CREATE TABLE questions (
@@ -39,12 +39,12 @@ CREATE TABLE choices (
 INSERT INTO choices
   (question_id, name, valid) 
 VALUES
-  (1, 'たかなわ', 1),
-  (1, 'たかわ', 0),
-  (1, 'こうわ', 0),
-  (2, 'かめと', 0),
-  (2, 'かめど', 0),
-  (2, 'かめいど', 1),
-  (3, 'むこうひら', 0),
-  (3, 'むきひら', 0),
-  (3, 'むかいなだ', 1);
+  (1, 'takanawa', 1),
+  (1, 'takawa', 0),
+  (1, 'kouwa', 0),
+  (2, 'kameto', 0),
+  (2, 'kamedo', 0),
+  (2, 'kameido', 1),
+  (3, 'mukouhira', 0),
+  (3, 'mukihira', 0),
+  (3, 'mukainada', 1);
