@@ -1,0 +1,73 @@
+.container {
+  margin: 0 auto;
+  width: 85%;
+}
+
+.picture {
+  width: 100%;
+}
+/* 設問の下線 */
+.underline {
+  display: inline-block;
+  position: relative;
+}
+
+.underline::after {
+  background-color: green;
+  display: block;
+  content: "";
+  position: absolute;
+  width: 124px;
+  bottom: -5px;
+  height: 2px;
+}
+
+ul {
+  padding-left: 0;
+}
+/* 選択肢のボックス */
+.box {
+  box-sizing: border-box;
+  cursor: pointer;
+  margin: 10px 0;
+  padding: 15px 30px 15px 10px;
+  width: 100%;
+  box-shadow: inset 0px -1.5px #e5e5e5;
+  border: 1px solid #e5e5e5;
+  font-family: "HiraKakuPro-W6";
+  list-style: none;
+}
+
+/* 正解の選択肢を赤 */
+.correctSelection{
+  background-color: #287dff;
+  color: #ffffff;
+}
+/* 不正解の選択肢を青 */
+.incorrectSelection{
+  background-color: #FF5028;
+  color: #ffffff;
+}
+
+/* answerBox */
+/* 箱 */
+.answerBox {
+  padding: 15px 30px 15px 10px;
+  width: auto;
+  background-color: #eeeeee;
+  font-family: "HiraKakuPro-W6";
+  display: none;
+}
+/* answerBoxの二行目の文字 */
+.answerBox2 {
+  font-family: Georgia, "Times New Roman", Times, serif;
+  margin-top: 10px;
+}
+/* 「正解」の青い下線 */
+.correct-line {
+  border-bottom: 3px solid #287dff;
+}
+/* 「不正解」の赤い下線 */
+.incorrect-line {
+  border-bottom: 3px solid #ff5028;
+}
