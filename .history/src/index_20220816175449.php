@@ -1,15 +1,15 @@
 <?php
 require("./dbconnect.php");
 
-// if (isset($_POST['content']) && isset($_POST['lang']) && isset($_POST['day']) && isset($_POST['time'])) {
-//     $day = $_POST['day'];
-//     $content = $_POST['content'];
-//     $lang = $_POST['lang'];
-//     $time = $_POST['time'];
-//     $comment = $_POST['comment'];
-// } else {
-//     echo '<script>alert("学習コンテンツと学習言語を入力してください")</script>';
-// }
+if (isset($_POST['content']) && isset($_POST['lang']) && isset($_POST['day']) && isset($_POST['time'])) {
+    $day = $_POST['day'];
+    $content = $_POST['content'];
+    $lang = $_POST['lang'];
+    $time = $_POST['time'];
+    $comment = $_POST['comment'];
+} else {
+    echo '<script>alert("学習コンテンツと学習言語を入力してください")</script>';
+}
 
 
 ?>

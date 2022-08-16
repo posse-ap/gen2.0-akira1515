@@ -6,9 +6,9 @@ DROP TABLE IF EXISTS study_languages;
 CREATE TABLE study_languages (
   id INT AUTO_INCREMENT NOT NULL PRIMARY KEY,
   study_language VARCHAR(225) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
-  color VARCHAR(225) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL
---   created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
---   updated_at DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+  color VARCHAR(225) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+  updated_at DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 );
 
 INSERT INTO study_languages 
@@ -28,9 +28,9 @@ DROP TABLE IF EXISTS study_contents;
 CREATE TABLE study_contents (
   id INT AUTO_INCREMENT NOT NULL PRIMARY KEY,
   study_content VARCHAR(225) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
-  color VARCHAR(225) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL
---   created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
---   updated_at DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+  color VARCHAR(225) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+  updated_at DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 );
 
 INSERT INTO study_contents 
@@ -44,15 +44,15 @@ DROP TABLE IF EXISTS study_data;
 CREATE TABLE study_data (
   id INT AUTO_INCREMENT NOT NULL PRIMARY KEY,
   study_date datetime NOT NULL,
-  study_language_id INT NOT NULL,
-  study_content_id INT NOT NULL,
+  study_languages INT NOT NULL,
+  study_contents INT NOT NULL,
   study_hour INT
 --   created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
 --   updated_at DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 );
 
 INSERT INTO study_data
-  (study_date, study_language_id, study_content_id, study_hour) 
+  (study_date, study_language, study_content, study_hour) 
 VALUES
     ('2022-3-05', 1, 1, 1),
     ('2022-3-06', 3, 2, 1),
