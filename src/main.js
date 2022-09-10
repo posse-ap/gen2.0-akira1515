@@ -36,6 +36,12 @@ window.addEventListener('DOMContentLoaded', function(){
 
 google.charts.load("current", {packages:["corechart"]});
 google.charts.setOnLoadCallback(drawChart);
+
+// const url = '/api/getChartInfo.php'
+//     const res = fetch(url)
+//     const studyHour = res.json()
+//     console.log(`${studyHour.one}`);
+
 function drawChart() {
   var data = google.visualization.arrayToDataTable([
     ["Element", "Density", { role: "style"} ],
@@ -69,7 +75,7 @@ function drawChart() {
     ["28", 1, "#36C5F8"],
     ["", 1, "#36C5F8"],
     ["30", 7, "#36C5F8"],
-    ["", 8, "#36C5F8"],
+    ["", 1, "#36C5F8"],
   ]);
 
   // 学習言語の円グラフ
@@ -88,8 +94,8 @@ function drawChart() {
   // 学習コンテンツの円グラフ
   var data_learning_contents = google.visualization.arrayToDataTable([
     ['Task', 'Hours per Day'],
-    ['N予備校',     40],
-    ['ドットインストール',      20],
+    ['N予備校',     30],
+    ['ドットインストール',      30],
     ['課題',  40]
   ]);
 

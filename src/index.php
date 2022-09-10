@@ -32,8 +32,12 @@ $studyHourYears = $stmt->fetch();
 foreach($studyHourYears as $studyHourYear){
 
 }
-?>
 
+
+
+
+
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -49,6 +53,7 @@ foreach($studyHourYears as $studyHourYear){
     <title>posse-app</title>
 </head>
 <body>
+
     <header>
         <h1 class="logo">
             <a href=""><img src="posse_logo.jpg" alt=""></a>
