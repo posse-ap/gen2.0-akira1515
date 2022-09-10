@@ -12,6 +12,26 @@ require("./dbconnect.php");
 // }
 
 
+$stmt = $db ->prepare('select SUM(study_hour) from study_data where study_date = CURDATE()');
+$stmt->execute();
+$studyHourTodays = $stmt->fetch();
+foreach($studyHourTodays as $studyHourToday){
+
+}
+
+$stmt = $db ->prepare('select SUM(study_hour) from study_data where DATE_FORMAT(study_date, "%Y%m") = DATE_FORMAT(NOW(), "%Y%m")');
+$stmt->execute();
+$studyHourMonths = $stmt->fetch();
+foreach($studyHourMonths as $studyHourMonth){
+
+}
+
+$stmt = $db ->prepare('select SUM(study_hour) from study_data');
+$stmt->execute();
+$studyHourYears = $stmt->fetch();
+foreach($studyHourYears as $studyHourYear){
+
+}
 ?>
 
 
@@ -43,17 +63,17 @@ require("./dbconnect.php");
                 <div class="time">
                     <section class="item">
                         <p class="time_span">Today</p>
-                        <p class="time_num"> 3</p>
+                        <p class="time_num"> <?php echo htmlspecialchars($studyHourToday); ?></p>
                         <p class="time_hour">hour</p>
                     </section>
                     <section class="item">
                         <p class="time_span">Month</p>
-                        <p class="time_num"> 120</p>
+                        <p class="time_num"> <?php echo htmlspecialchars($studyHourMonth); ?></p>
                         <p class="time_hour">hour</p>
                     </section>
                     <section class="item">
                         <p class="time_span">Total</p>
-                        <p class="time_num"> 1348</p>
+                        <p class="time_num"> <?php echo htmlspecialchars($studyHourYear); ?></p>
                         <p class="time_hour">hour</p>
                     </section>
                 </div>
