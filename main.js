@@ -116,31 +116,48 @@ let ball2 = new Ball(
     new Vec2(240, 60),
     30
 );
+let ball3 = new Ball(
+    new Vec2(200, 300),
+    new Vec2(240, 60),
+    10
+);
+let ball4 = new Ball(
+    new Vec2(200, 300),
+    new Vec2(-240, -60),
+    20
+);
+let ball5 = new Ball(
+    new Vec2(200, 300),
+    new Vec2(-240, 60),
+    5
+);
 //ボールを配列化
-let balls = [ball, ball2];
-
+let balls = [ball, ball2, ball3, ball4, ball5];
 
 function draw(){
-    for(let ball of balls){
+    // var random = Math.floor( Math.random() * 5 );
+    // console.log(random);
+
+    for(let i=0; i<balls.length; i++){
     // ボールを移動させる
-    ball.p = ball.p.add(ball.v.mul(1/60));
+    balls[i].p = balls[i].p.add(balls[i].v.mul(1/60));
 
     // ボールが左端か右端にきたら反射
-    if((ball.p.x < 15)||(ball.p.x > 385)){
-        ball.v.x = -ball.v.x;
+    if((balls[i].p.x < 15)||(balls[i].p.x > 385)){
+        balls[i].v.x = -balls[i].v.x;
     }
 
-    if((ball.p.y < 15)||(ball.p.y > 385)){
-        ball.v.y = -ball.v.y;
+    if((balls[i].p.y < 15)||(balls[i].p.y > 385)){
+        balls[i].v.y = -balls[i].v.y;
     }
     //ボールとブロックの衝突判定
     for(let block of blocks){
-    let d = block.p.sub(ball.p).mag(); //距離
-    if (d < (ball.r+block.r)){
+    let d = block.p.sub(balls[i].p).mag(); //距離
+    if (d < (balls[i].r+block.r)){
         //ぶつかっていたら、ボールの速度を反射させる
-        let w = ball.p.sub(block.p);
-        let r = ball.v.reflect(w);
-        ball.v = r;
+        let w = balls[i].p.sub(block.p);
+        let r = balls[i].v.reflect(w);
+        balls[i].v = r;
         //ブロックを消す
         blocks.splice(blocks.indexOf(block), 1);
         }
@@ -148,22 +165,23 @@ function draw(){
     //パドルの操作
     paddle.p.x = mouseX;
     //ボールとパドルの衝突判定
-    let d = paddle.p.sub(ball.p).mag(); //距離
-    if (d < (ball.r+paddle.r)){
+    let d = paddle.p.sub(balls[i].p).mag(); //距離
+    if (d < (balls[i].r+paddle.r)){
         //ぶつかっていたら、ボールの速度を反射させる
-        let w = ball.p.sub(paddle.p);
-        let r = ball.v.reflect(w);
-        ball.v = r;
+        let w = balls[i].p.sub(paddle.p);
+        let r = balls[i].v.reflect(w);
+        balls[i].v = r;
         //めりこみ防止
-        ball.p = paddle.p.add(w.norm().mul(ball.r + paddle.r));
+        balls[i].p = paddle.p.add(w.norm().mul(balls[i].r + paddle.r));
     }
 
 
     // 画面を塗りつぶす（消去）
     background(220);
     //ボールを描画
-    for(let ball of balls){
-    circle(ball.p.x, ball.p.y, 2*ball.r);
+    
+    for(let i=0; i<balls.length; i++){
+    circle(balls[i].p.x, balls[i].p.y, 2*balls[i].r);
     }
     //ブロックを描画
     for(let b of blocks){
